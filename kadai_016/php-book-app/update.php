@@ -15,7 +15,7 @@
           book_name = :book_name,
           price = :price,
           stock_quantity = :stock_quantity,
-          genre_code = :jenre_code
+          genre_code = :genre_code
           WHERE id = :id
       ';
       $stmt_update = $pdo->prepare($sql_update);
@@ -25,7 +25,7 @@
       $stmt_update->bindValue(':book_name', $_POST['book_name'], PDO::PARAM_STR);
       $stmt_update->bindValue(':price', $_POST['price'], PDO::PARAM_INT);
       $stmt_update->bindValue(':stock_quantity', $_POST['stock_quantity'], PDO::PARAM_INT);
-      $stmt_update->bindValue(':jenre_code', $_POST['jenre_code'], PDO::PARAM_INT);
+      $stmt_update->bindValue(':genre_code', $_POST['genre_code'], PDO::PARAM_INT);
       $stmt_update->bindValue(':id', $_GET['id'], PDO::PARAM_INT);
 
       // SQL文を実行する
@@ -60,11 +60,11 @@
  
          // SQL文の実行結果を配列で取得する
          // 補足：1つのレコード（横1行のデータ）のみを取得したい場合、fetch()メソッドを使えばカラム名がキーになった1次元配列を取得できる    
-         $product = $stmt_select_product->fetch(PDO::FETCH_ASSOC);
+         $books = $stmt_select_product->fetch(PDO::FETCH_ASSOC);
  
          // idパラメータの値と同じidのデータが存在しない場合はエラーメッセージを表示して処理を終了する
          // 補足：fetch()メソッドは実行結果が取得できなかった場合にFALSEを返す
-         if ($product === FALSE) {
+         if ($books === FALSE) {
              exit('idパラメータの値が不正です。');
          }
  

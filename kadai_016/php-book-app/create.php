@@ -1,6 +1,7 @@
 <?php
  $dsn = 'mysql:dbname=php_book_app_new;host=localhost;charset=utf8mb4';
  $user = 'root';
+ // MAMPを利用しているMacユーザーの方は、''ではなく'root'を代入してください
  $password = '';
 
  // submitパラメータの値が存在するとき（「登録」ボタンを押したとき）の処理

@@ -7,6 +7,7 @@
      $pdo = new PDO($dsn, $user, $password);
 
      // orderパラメータの値が存在すれば（並び替えボタンを押したとき）、その値を変数$orderに代入する
+     
      if (isset($_GET['order'])) {
       $order = $_GET['order'];
   } else {
@@ -41,7 +42,7 @@
      $stmt_select->execute();
  
      // SQL文の実行結果を配列で取得する
-     $products = $stmt_select->fetchAll(PDO::FETCH_ASSOC);
+     $books = $stmt_select->fetchAll(PDO::FETCH_ASSOC);
  } catch (PDOException $e) {
      exit($e->getMessage());
  }
@@ -104,6 +105,7 @@
                  </tr>
                  <?php
                  // 配列の中身を順番に取り出し、表形式で出力する
+
                  foreach ($books as $book) {
                      $table_row = "
                          <tr>
